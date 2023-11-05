@@ -1,0 +1,25 @@
+<script>
+    // Redirect to blog.pcarleton.com/ but with the path
+    // we're currently on
+    const TARGET_URL = 'https://blog.pcarleton.com';
+
+    var segments = window.location.pathname.split("/").filter(Boolean);
+
+    if (segments.length == 4) {
+        var slug = segments[3];
+        var newURL = TARGET_URL + '/post/' + slug;
+        console.log("Redirecting post", "url", window.location.pathname, "segments", segments.length, "target", newURL);
+        window.location.href = newURL;
+        return;
+    }
+
+    if (window.location.pathname === "/rss/" || window.location.pathname === "/rss") {
+        var newURL = TARGET_URL + '/post/index.xml';
+        console.log("Redirecting rss", "url", window.location.pathname, "segments", segments.length, "target", newURL);
+        window.location.href = newURL;
+        return;
+    }
+
+    // Otherwise just send to the normal path
+    window.location.href = TARGET_URL + window.location.pathname;
+</script>
