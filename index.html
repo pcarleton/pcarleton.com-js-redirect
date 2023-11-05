@@ -10,14 +10,12 @@
         var newURL = TARGET_URL + '/post/' + slug;
         console.log("Redirecting post", "url", window.location.pathname, "segments", segments.length, "target", newURL);
         window.location.href = newURL;
-        return;
     }
 
     if (window.location.pathname === "/rss/" || window.location.pathname === "/rss") {
         var newURL = TARGET_URL + '/post/index.xml';
         console.log("Redirecting rss", "url", window.location.pathname, "segments", segments.length, "target", newURL);
         window.location.href = newURL;
-        return;
     }
 
     // Otherwise just send to the normal path
